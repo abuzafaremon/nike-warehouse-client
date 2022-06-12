@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link } from 'react-router-dom';
 import './OffCanvas.css';
 
 const OffCanvas = () => {
@@ -12,7 +13,7 @@ const OffCanvas = () => {
       {['md'].map((expand) => (
         <Navbar sticky="top" key={expand} bg="dark" expand={expand} className="mb-3 navbar-dark">
           <Container>
-            <Navbar.Brand className='fw-bold' href="/"><span className='text-crimson'>Nike</span> WareHouse</Navbar.Brand>
+            <Navbar.Brand className='fw-bold' as={Link} to='/' ><span className='text-crimson'>Nike</span> WareHouse</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -26,21 +27,22 @@ const OffCanvas = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
+                  <Nav.Link as={Link} to='/home'>Home</Nav.Link>
+                  <Nav.Link as={Link} to='/manageInventory'>Manage Inventory</Nav.Link>
+                  <Nav.Link as={Link} to='/login'>Login</Nav.Link>
                   <NavDropdown
                     title="Profile"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">My items</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
+                    <NavDropdown.Item as={Link} to='/myItems'>My items</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to='/manageItems'>
                       Manage Items
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
+                    <NavDropdown.Item as={Link} to='/addItem'>
                       Add Item <span className='fw-bold'>+</span>
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
+                    <NavDropdown.Item>
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
