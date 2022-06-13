@@ -1,0 +1,23 @@
+.news-letter {
+  background: url(../../../Images/nike-logo.jpg) no-repeat fixed;
+  background-size: cover;
+}
+
+.news-letter .form-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+}
+
+.form-title {
+  font-size: 2.5rem;
+  border-left: 5px solid var(--main-color);
+  padding-left: 5px;
+}
+
+.form-container input {
+  font-size: 1.4rem;
+}
+
+.form-container small {
+  font-size: 1.4rem;
+}

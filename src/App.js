@@ -10,7 +10,8 @@ import AddItem from './Pages/AddItem/AddItem';
 import ManageItems from './Pages/ManageItems/ManageItems';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
-import NotFound from './Pages/Login/NotFound/NotFound';
+import NotFound from './Pages/NotFound/NotFound';
+
 function App() {
   return (
     <div className="App">

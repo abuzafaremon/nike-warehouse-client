@@ -11,7 +11,7 @@ const OffCanvas = () => {
   return (
     <>
       {['md'].map((expand) => (
-        <Navbar sticky="top" key={expand} bg="dark" expand={expand} className="mb-3 navbar-dark">
+        <Navbar sticky="top" key={expand} bg="dark" expand={expand} className="navbar-dark">
           <Container>
             <Navbar.Brand className='fw-bold' as={Link} to='/' ><span className='text-crimson'>Nike</span> WareHouse</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -22,7 +22,7 @@ const OffCanvas = () => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                  <span className='text-crimson'>Nike</span> Warehouse
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

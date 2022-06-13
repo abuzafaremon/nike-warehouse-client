@@ -1,12 +1,15 @@
-.banner span {
-  font-size: 2.5rem;
-  color: var(--main-color);
+#banner {
+  min-height: 80vh;
+  background: url(../../../Images/banner.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
-.banner h2 {
-  font-size: 4rem;
+#banner .overlay {
+  background-color: #00000070;
+  min-height: 80vh;
 }
 
-.banner p {
-  font-size: 1.7rem;
+.content {
+  width: 100%;
+  height: 80vh;
 }

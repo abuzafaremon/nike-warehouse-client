@@ -4,9 +4,25 @@
 
 .nav-link {
   font-size: 1.8rem;
+  color: var(--dark);
+}
+
+.nav-link:focus {
+  font-size: 1.8rem;
+  color: var(--main-color);
+}
+
+
+.nav-link:hover {
+  font-size: 1.8rem;
+  color: var(--main-color);
 }
 
 .dropdown-item {
   font-size: 1.6rem;
   color: var(--dark);
+}
+
+.offcanvas-title {
+  font-size: 2.5rem;
 }
