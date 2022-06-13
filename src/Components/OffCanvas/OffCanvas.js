@@ -4,10 +4,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../Firebase/firebase.init';
 import './OffCanvas.css';
 
 const OffCanvas = () => {
+  const [user] = useAuthState(auth);
   return (
     <>
       {['md'].map((expand) => (
@@ -29,23 +32,24 @@ const OffCanvas = () => {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                   <Nav.Link as={Link} to='/manageInventory'>Manage Inventory</Nav.Link>
-                  <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-                  <NavDropdown
-                    title="Profile"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item as={Link} to='/myItems'>My items</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to='/manageItems'>
-                      Manage Items
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to='/addItem'>
-                      Add Item <span className='fw-bold'>+</span>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item>
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  {user ?
+                    <NavDropdown
+                      title="Profile"
+                      id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    >
+                      <NavDropdown.Item as={Link} to='/myItems'>My items</NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to='/manageItems'>
+                        Manage Items
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to='/addItem'>
+                        Add Item <span className='fw-bold'>+</span>
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item>
+                        Logout
+                      </NavDropdown.Item>
+                    </NavDropdown> :
+                    <Nav.Link as={Link} to='/login'>Login</Nav.Link>}
                 </Nav>
                 {/* <Form className="d-flex">
                   <Form.Control
