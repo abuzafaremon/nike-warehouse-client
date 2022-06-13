@@ -3,6 +3,9 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { async } from '@firebase/util';
+import Loading from '../../../Components/Loading/Loading';
+import './Register.css';
 
 const Register = () => {
   const nameRef = useRef();
@@ -15,8 +18,22 @@ const Register = () => {
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
-  const handleSubmit = () => {
 
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    // const agree = event.target.terms.checked;
+
+    await createUserWithEmailAndPassword(email, password);
+    event.target.reset();
+  }
+  if (loading) {
+    return <Loading />
+  }
+  if (user) {
+    navigate('/');
   }
   const handleShowPassword = () => {
     const pass = passwordRef.current;
@@ -36,7 +53,7 @@ const Register = () => {
   }
 
   return (
-    <section className="py-5">
+    <section className="py-5 register-page">
       <div className='login p-4 w-75 mx-auto shadow'>
         <h2 className='mb-4 text-center'>Please Register</h2>
         <Form onSubmit={handleSubmit}>

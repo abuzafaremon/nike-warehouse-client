@@ -4,11 +4,14 @@ import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
+import Loading from '../../../Components/Loading/Loading';
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
 
   const [
     signInWithEmailAndPassword,
@@ -17,10 +20,19 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await signInWithEmailAndPassword(email, password);
+    event.target.reset();
   }
-
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (loading) {
+    return <Loading />
+  }
   const handleShowPassword = () => {
     const pass = passwordRef.current;
     if (pass.type === "password") {
@@ -33,9 +45,7 @@ const Login = () => {
   let errorElement;
   if (error) {
     errorElement =
-
       <p className='text-danger'>Error: {error?.message}</p>
-
   }
 
   const resetPassword = () => {
@@ -46,7 +56,7 @@ const Login = () => {
   }
 
   return (
-    <section className='py-5'>
+    <section className='py-5 login-page'>
       <div className='login p-4 w-75 mx-auto shadow'>
         <h2 className='mb-4 text-center'>Please Login</h2>
         <Form onSubmit={handleSubmit}>

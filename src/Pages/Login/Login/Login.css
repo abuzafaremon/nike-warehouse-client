@@ -1,6 +1,15 @@
+.login-page {
+  background: url(../../../Images/nike-logo.jpg) no-repeat center center;
+  background-size: cover;
+  height: 84vh;
+  display: flex;
+  align-items: center;
+}
+
 .login {
+  background-color: rgba(255, 255, 255, 0.9);
   max-width: 400px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   border-radius: 10px;
 }
 
@@ -18,7 +27,7 @@
 
 .login span,
 .login a {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   color: var(--main-color);
 }

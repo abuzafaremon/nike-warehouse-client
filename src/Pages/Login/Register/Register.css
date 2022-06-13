@@ -1,0 +1,7 @@
+.register-page {
+  background: url(../../../Images/nike-logo.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 84vh;
+  display: flex;
+  align-items: center;
+}

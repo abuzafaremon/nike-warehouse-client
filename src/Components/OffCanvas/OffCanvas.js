@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -11,6 +12,9 @@ import './OffCanvas.css';
 
 const OffCanvas = () => {
   const [user] = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+  }
   return (
     <>
       {['md'].map((expand) => (
@@ -45,7 +49,7 @@ const OffCanvas = () => {
                         Add Item <span className='fw-bold'>+</span>
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item>
+                      <NavDropdown.Item onClick={handleSignOut}>
                         Logout
                       </NavDropdown.Item>
                     </NavDropdown> :
