@@ -1,0 +1,24 @@
+.login {
+  max-width: 400px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.login h2 {
+  font-size: 2.5rem;
+}
+
+.login input {
+  font-size: 1.6rem;
+}
+
+.login button {
+  font-size: 1.6rem;
+}
+
+.login span,
+.login a {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--main-color);
+}
