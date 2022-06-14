@@ -8,7 +8,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
-import './OffCanvas.css';
+import './Header.css';
 
 const OffCanvas = () => {
   const [user] = useAuthState(auth);

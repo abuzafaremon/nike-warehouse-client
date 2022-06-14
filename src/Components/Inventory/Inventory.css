@@ -1,0 +1,15 @@
+.inventory {
+  position: relative;
+  overflow: hidden;
+}
+
+.inventory .in-b1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background-color: var(--main-color);
+  filter: blur(150px);
+}

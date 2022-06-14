@@ -5,3 +5,8 @@
 .NewArrival p {
   font-size: 1.7rem;
 }
+
+.NewArrival .imgBox:hover img {
+  transform: rotate(25deg);
+  transition: .3s ease;
+}

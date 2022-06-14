@@ -1,0 +1,48 @@
+.single-product {
+  border-radius: .8rem;
+  border: 1px solid var(--dark);
+  min-height: 255px;
+  position: relative;
+  background-color: #fff;
+  min-height: 435px;
+  overflow: hidden;
+}
+
+.single-product h2 {
+  font-size: 2.5rem;
+  color: var(--dark);
+}
+
+.single-product p {
+  font-size: 1.6em;
+  margin: 0;
+}
+
+.single-product span {
+  font-size: 1.4rem;
+}
+
+.single-product button {
+  font-size: 1.4rem;
+}
+
+.single-product .info {
+  position: relative;
+  bottom: -300px;
+}
+
+
+.single-product:hover .info {
+  transition: .3s all ease-in-out;
+  bottom: 0;
+}
+
+.single-product .imgBox {
+  position: relative;
+  top: 100px;
+}
+
+.single-product:hover .imgBox {
+  top: 0;
+  transition: .3s all ease-in-out;
+}

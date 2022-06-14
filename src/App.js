@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import OffCanvas from './Components/OffCanvas/OffCanvas';
 import { Routes, Route } from 'react-router-dom';
+import Header from '../src/Components/Header/Header'
 import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home/Home';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
@@ -14,13 +14,17 @@ import NotFound from './Pages/NotFound/NotFound';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './Firebase/firebase.init';
+import Loading from './Components/Loading/Loading';
 
 function App() {
 
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Loading />
+  }
   return (
     <div className="App">
-      <OffCanvas />
+      <Header />
       <Routes>
         <Route path='/' element={user ? <Home /> : <Login />}></Route>
         <Route path='/home' element={<Home />}></Route>
