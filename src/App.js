@@ -15,6 +15,7 @@ import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './Firebase/firebase.init';
 import Loading from './Components/Loading/Loading';
+import ProductDetail from './Pages/ProductDetail/ProductDetail';
 
 function App() {
 
@@ -29,6 +30,11 @@ function App() {
         <Route path='/' element={user ? <Home /> : <Login />}></Route>
         <Route path='/home' element={<Home />}></Route>
         <Route path='/manageInventory' element={<ManageInventory />}></Route>
+        <Route path='/product/:productId' element={
+          <RequireAuth>
+            <ProductDetail />
+          </RequireAuth>
+        }></Route>
         <Route path='/myItems' element={
           <RequireAuth>
             <MyItems />

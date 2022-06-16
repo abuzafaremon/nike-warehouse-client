@@ -1,0 +1,6 @@
+.manage-inventory .add-new-item {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  font-size: 1.5rem;
+}

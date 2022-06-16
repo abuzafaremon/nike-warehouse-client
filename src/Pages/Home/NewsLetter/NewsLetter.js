@@ -18,7 +18,7 @@ const NewsLetter = () => {
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
-            <Button className='w-100' variant="dark" type="submit">
+            <Button className='w-100' variant="danger" type="submit">
               Subscribe
             </Button>
           </Form>

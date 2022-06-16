@@ -1,0 +1,12 @@
+.product-detail {
+  font-size: 1.5rem;
+}
+
+.product-detail h2 {
+  font-size: 2.5rem;
+}
+
+.product-detail button,
+.product-detail input {
+  font-size: 1.4rem;
+}

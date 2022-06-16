@@ -1,3 +1,7 @@
+.navbar {
+  border-bottom: 1px solid #000;
+}
+
 .navbar-brand {
   font-size: 2.5rem;
 }

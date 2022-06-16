@@ -7,6 +7,6 @@
 }
 
 .NewArrival .imgBox:hover img {
-  transform: rotate(25deg);
+  transform: rotate(15deg);
   transition: .3s ease;
 }

@@ -1,0 +1,13 @@
+.add-item {
+  max-width: 700px;
+}
+
+.add-item input,
+.add-item textarea {
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.add-item form {
+  border-radius: 10px;
+}
