@@ -12,3 +12,7 @@
   font-weight: bold;
   color: var(--main-color);
 }
+
+.Toastify {
+  font-size: 1.6rem;
+}

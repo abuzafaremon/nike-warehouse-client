@@ -1,12 +1,26 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import './AddItem.css'
+import './AddItem.css';
+import { toast } from 'react-toastify';
 
 const AddItem = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-    console.log(data);
-
+    const url = `http://localhost:5000/product`;
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(product => {
+        if (product.insertedId) {
+          toast('Product Added Successfully')
+        }
+      })
+    reset();
   };
   return (
     <section className="py-5">

@@ -1,0 +1,28 @@
+.divider span {
+  height: 2px;
+  background-color: #bbb;
+  width: 100%;
+}
+
+.social-login button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border: 2px solid var(--dark);
+  border-radius: .5rem;
+  padding: .5rem 0;
+}
+
+.social-login button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.social-login button .facebook {
+  color: #1873eb;
+}
+
+.social-login button span {
+  color: var(--dark);
+}

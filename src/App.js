@@ -16,6 +16,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './Firebase/firebase.init';
 import Loading from './Components/Loading/Loading';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -55,6 +57,7 @@ function App() {
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

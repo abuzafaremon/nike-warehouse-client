@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { async } from '@firebase/util';
 import Loading from '../../../Components/Loading/Loading';
 import './Register.css';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
   const nameRef = useRef();
@@ -77,6 +78,7 @@ const Register = () => {
         </Form>
         {errorElement}
         <p>Already have an account? <Link to='/login' className=' text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
+        <SocialLogin />
       </div>
     </section>
   );

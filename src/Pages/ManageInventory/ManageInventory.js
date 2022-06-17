@@ -26,7 +26,7 @@ const ManageInventory = () => {
                 </div>
                 <div className="info">
                   <span className='d-block text-justify'>{product.description.slice(0, 160)}</span>
-                  <p className='fw-bold'>Price: {product.price}</p>
+                  <p className='fw-bold'>Price: ${product.price}</p>
                   <p className='fw-bold'>Quantity: {product.quantity}</p>
                   <p className='fw-bold'>Supplier: {product.supplier_name}</p>
                   <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100'>Delete</button>

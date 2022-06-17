@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import Loading from '../../../Components/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
   const emailRef = useRef();
@@ -78,6 +79,7 @@ const Login = () => {
         {errorElement}
         <p>Forgot Password? <span className='mb-1 text-decoration-none' onClick={resetPassword}>Reset Password</span></p>
         <p>New to genius car? <Link to='/register' className=' text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+        <SocialLogin />
       </div>
     </section>
   );
