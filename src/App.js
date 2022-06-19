@@ -18,6 +18,7 @@ import Loading from './Components/Loading/Loading';
 import ProductDetail from './Pages/ProductDetail/ProductDetail';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
             <ManageItems />
           </RequireAuth>
         }></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='*' element={<NotFound />}></Route>

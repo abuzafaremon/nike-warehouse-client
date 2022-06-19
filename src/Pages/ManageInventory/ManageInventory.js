@@ -4,10 +4,22 @@ import useProduct from '../../hooks/useProduct';
 import './ManageInventory.css';
 
 const ManageInventory = () => {
-  const [products] = useProduct();
+  const [products, setProducts] = useProduct();
   const navigate = useNavigate();
   const deleteProduct = id => {
-    console.log(id)
+    const proceed = window.confirm('Are you sure?');
+    if (proceed) {
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          const remaining = products.filter(product => product._id !== id);
+          setProducts(remaining);
+        })
+    }
   }
   const goToAddNewItem = () => {
     navigate('/addItem');
@@ -18,7 +30,7 @@ const ManageInventory = () => {
         <h2 className='text-center mb-5 section-title'>Manage Inventory</h2>
         <div className="row g-5">
           {
-            products.map(product => <div className='col-12 col-sm-6 col-md-4'>
+            products.map(product => <div key={product._id} className='col-12 col-sm-6 col-md-4'>
               <div className='single-product shadow p-4 text-center'>
                 <div className="imgBox">
                   <img className='img-fluid mb-3' src={product.img} alt="" />

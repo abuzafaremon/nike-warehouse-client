@@ -1,0 +1,8 @@
+.accordion {
+  max-width: 600px;
+  font-size: 1.5rem;
+}
+
+.accordion .accordion-header button {
+  font-size: 1.6rem;
+}
