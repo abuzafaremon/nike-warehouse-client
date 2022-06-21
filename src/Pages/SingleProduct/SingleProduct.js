@@ -18,7 +18,12 @@ const SingleProduct = ({ product }) => {
         <div className="info">
           <span className='d-block text-justify'>{description.slice(0, 160)}</span>
           <p className='fw-bold'>Price: {price}</p>
-          <p className='fw-bold'>Quantity: {quantity}</p>
+          {
+            quantity === 0 ?
+              <p className='fw-bold'>Out of Stock</p>
+              :
+              <p className='fw-bold'>Quantity: {quantity}</p>
+          }
           <p className='fw-bold'>Supplier: {supplier_name}</p>
           <button onClick={() => navigateToProductDetail(_id)} className='btn btn-dark w-100'>Update</button>
         </div>

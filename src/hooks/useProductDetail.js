@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useProductDetail = productId => {
   const [product, setProduct] = useState({});
@@ -7,8 +7,8 @@ const useProductDetail = productId => {
     fetch(url)
       .then(res => res.json())
       .then(data => setProduct(data));
-  }, [productId]);
-  return [product];
+  }, [productId, product]);
+  return [product, setProduct];
 };
 
 export default useProductDetail;

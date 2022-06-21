@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import './Login.css';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import Loading from '../../../Components/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const emailRef = useRef();
@@ -20,6 +21,9 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+    auth
+  );
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -31,7 +35,7 @@ const Login = () => {
   if (user) {
     navigate(from, { replace: true });
   }
-  if (loading) {
+  if (loading || sending) {
     return <Loading />
   }
   const handleShowPassword = () => {
@@ -49,8 +53,15 @@ const Login = () => {
       <p className='text-danger'>Error: {error?.message}</p>
   }
 
-  const resetPassword = () => {
-    console.log('reset')
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast('Email sent')
+    }
+    else {
+      toast('Please enter your email address')
+    }
   }
   const navigateRegister = () => {
     navigate('/register')

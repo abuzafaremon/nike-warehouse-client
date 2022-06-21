@@ -1,9 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../Firebase/firebase.init';
 import useProduct from '../../hooks/useProduct';
+import { CgDanger } from 'react-icons/cg';
 import './ManageInventory.css';
+import { MdDeleteForever } from 'react-icons/md';
+import { GoDiffAdded } from 'react-icons/go';
 
 const ManageInventory = () => {
+  const [user] = useAuthState(auth);
   const [products, setProducts] = useProduct();
   const navigate = useNavigate();
   const deleteProduct = id => {
@@ -39,15 +45,23 @@ const ManageInventory = () => {
                 <div className="info">
                   <span className='d-block text-justify'>{product.description.slice(0, 160)}</span>
                   <p className='fw-bold'>Price: ${product.price}</p>
-                  <p className='fw-bold'>Quantity: {product.quantity}</p>
+                  {
+                    product.quantity === 0 ?
+                      <p className='fw-bold'>Out of Stock</p>
+                      :
+                      <p className='fw-bold'>Quantity: {product.quantity}</p>
+                  }
                   <p className='fw-bold'>Supplier: {product.supplier_name}</p>
-                  <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100'>Delete</button>
+                  {
+                    product?.email === user?.email ? <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100 d-flex align-items-center justify-content-center gap-1 fw-bold'>Delete <MdDeleteForever className='text-danger' style={{ 'width': '20px', 'height': '20px' }} /></button> :
+                      <button className='btn btn-dark w-100 d-flex align-items-center justify-content-center gap-1' disabled>Other's Product <CgDanger className='text-danger mt-0' style={{ 'width': '20px', 'height': '20px' }} /></button>
+                  }
                 </div>
               </div>
             </div>)
           }
         </div>
-        <button onClick={goToAddNewItem} className="btn btn-dark add-new-item">Add New Item</button>
+        <button onClick={goToAddNewItem} className="btn btn-dark add-new-item d-flex align-items-center gap-1">Add New Item <GoDiffAdded /></button>
       </div>
     </section>
   );

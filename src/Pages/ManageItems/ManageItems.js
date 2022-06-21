@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 import useProduct from '../../hooks/useProduct';
+import { MdDeleteForever } from 'react-icons/md';
 
 const ManageItems = () => {
   const [user] = useAuthState(auth);
@@ -25,7 +26,7 @@ const ManageItems = () => {
   return (
     <section className='py-5'>
       <div className="container">
-        <h2 className='text-center mb-5 section-title'>My Items</h2>
+        <h2 className='text-center mb-5 section-title'>Manage Items</h2>
         <div className="row g-5">
           {
             myItems.map(product => <div key={product._id} className='col-12 col-sm-6 col-md-4'>
@@ -39,7 +40,7 @@ const ManageItems = () => {
                   <p className='fw-bold'>Price: ${product.price}</p>
                   <p className='fw-bold'>Quantity: {product.quantity}</p>
                   <p className='fw-bold'>Supplier: {product.supplier_name}</p>
-                  <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100'>Delete</button>
+                  <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100 d-flex align-items-center justify-content-center gap-1 fw-bold'>Delete <MdDeleteForever className='text-danger' style={{ 'width': '20px', 'height': '20px' }} /></button>
                 </div>
               </div>
             </div>)

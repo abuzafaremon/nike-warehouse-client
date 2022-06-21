@@ -4,6 +4,7 @@ import './AddItem.css';
 import { toast } from 'react-toastify';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
+import { GoDiffAdded } from 'react-icons/go';
 
 const AddItem = () => {
   const [user] = useAuthState(auth);
@@ -40,7 +41,7 @@ const AddItem = () => {
               <input className='ps-2' placeholder='Price' type="number" {...register("price", { required: true })} />
               <input className='ps-2' placeholder='Quantity' type="number" min='1' {...register("quantity", { required: true })} />
             </div>
-            <input className='btn btn-dark' type="submit" value="Add Product" />
+            <button className='btn btn-dark btn-lg d-flex align-items-center justify-content-center gap-2' type="submit" >Add Product <GoDiffAdded /></button>
           </form>
         </div>
       </div>
