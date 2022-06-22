@@ -16,8 +16,8 @@ const SingleProduct = ({ product }) => {
           <h2>{name}</h2>
         </div>
         <div className="info">
-          <span className='d-block text-justify'>{description.slice(0, 160)}</span>
-          <p className='fw-bold'>Price: {price}</p>
+          <span className='d-block text-justify p-2'>{description.slice(0, 160)}</span>
+          <h2 className='fw-bold'>Price: ${price}</h2>
           {
             quantity === 0 ?
               <p className='fw-bold'>Out of Stock</p>

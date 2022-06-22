@@ -39,7 +39,7 @@ const OffCanvas = () => {
                   <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
                   {user ?
                     <NavDropdown
-                      title={user.displayName}
+                      title={user.displayName ? user.displayName : 'Profile'}
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                     >
                       <NavDropdown.Item as={Link} to='/myItems'>My items</NavDropdown.Item>

@@ -11,7 +11,7 @@ const ManageItems = () => {
   const deleteProduct = id => {
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://radiant-oasis-95888.herokuapp.com/product/${id}`;
       fetch(url, {
         method: 'DELETE'
       })
@@ -37,7 +37,7 @@ const ManageItems = () => {
                 </div>
                 <div className="info">
                   <span className='d-block text-justify'>{product.description.slice(0, 160)}</span>
-                  <p className='fw-bold'>Price: ${product.price}</p>
+                  <h2 className='fw-bold'>Price: ${product.price}</h2>
                   <p className='fw-bold'>Quantity: {product.quantity}</p>
                   <p className='fw-bold'>Supplier: {product.supplier_name}</p>
                   <button onClick={() => deleteProduct(product._id)} className='btn btn-dark w-100 d-flex align-items-center justify-content-center gap-1 fw-bold'>Delete <MdDeleteForever className='text-danger' style={{ 'width': '20px', 'height': '20px' }} /></button>

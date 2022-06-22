@@ -10,7 +10,7 @@ const AddItem = () => {
   const [user] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-    const url = `http://localhost:5000/product`;
+    const url = `https://radiant-oasis-95888.herokuapp.com/product`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -38,7 +38,7 @@ const AddItem = () => {
             <input className='ps-2' placeholder='Product Image URL' type="text" min='1' {...register("img", { required: true })} />
             <div className="d-flex flex-column flex-sm-row gap-2 align-items-center justify-content-between">
               <input className='ps-2' placeholder='Supplier Name' type="text" {...register("supplier_name", { required: true })} />
-              <input className='ps-2' placeholder='Price' type="number" {...register("price", { required: true })} />
+              <input className='ps-2' placeholder='Price' type="number" min='1' {...register("price", { required: true })} />
               <input className='ps-2' placeholder='Quantity' type="number" min='1' {...register("quantity", { required: true })} />
             </div>
             <button className='btn btn-dark btn-lg d-flex align-items-center justify-content-center gap-2' type="submit" >Add Product <GoDiffAdded /></button>

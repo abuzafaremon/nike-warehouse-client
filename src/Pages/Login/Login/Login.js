@@ -7,6 +7,7 @@ import auth from '../../../Firebase/firebase.init';
 import Loading from '../../../Components/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const Login = () => {
   const emailRef = useRef();
@@ -30,14 +31,21 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
+
+    const { data } = await axios.post('https://radiant-oasis-95888.herokuapp.com/login', { email });
+    localStorage.setItem('accessToken', data.accessToken);
+    navigate(from, { replace: true });
     event.target.reset();
   }
+
   if (user) {
     navigate(from, { replace: true });
   }
+
   if (loading || sending) {
     return <Loading />
   }
+
   const handleShowPassword = () => {
     const pass = passwordRef.current;
     if (pass.type === "password") {
@@ -63,6 +71,7 @@ const Login = () => {
       toast('Please enter your email address')
     }
   }
+
   const navigateRegister = () => {
     navigate('/register')
   }

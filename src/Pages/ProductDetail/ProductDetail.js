@@ -18,7 +18,7 @@ const ProductDetail = () => {
     if (quantity > 0) {
       product.quantity = quantity - 1;
     }
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://radiant-oasis-95888.herokuapp.com/product/${id}`;
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -39,7 +39,7 @@ const ProductDetail = () => {
     const previousQuantity = product.quantity;
     const quantity = e.target.quantity.value;
     product.quantity = parseInt(previousQuantity) + parseInt(quantity);
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://radiant-oasis-95888.herokuapp.com/product/${id}`;
     fetch(url, {
       method: 'PUT',
       headers: {
