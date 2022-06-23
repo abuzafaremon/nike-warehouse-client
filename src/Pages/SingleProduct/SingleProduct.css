@@ -56,3 +56,19 @@
   top: 0;
   transition: .3s all ease-in-out;
 }
+
+
+@media screen and (max-width:576px) {
+  .single-product {
+    background-color: #fff;
+    color: var(--dark);
+  }
+
+  .single-product .info {
+    bottom: 0;
+  }
+
+  .single-product .imgBox {
+    top: 0;
+  }
+}

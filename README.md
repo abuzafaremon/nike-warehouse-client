@@ -1,10 +1,24 @@
-# Getting Started with Create React App
+# Nike Warehouse Management Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `Shot description`
+This is a Nike Shoes warehouse management website. You can create an account here using email and password as well as Google. You can add your product here. Update your product quantity. Delete your product but you can not delete others product. When you login this website you see a profile section where you see my-items,manage-items,add-items. If you forgot your password you can reset you password. 
 
-## Available Scripts
+## [Live Website Link](https://nike-warehouse.web.app/)
 
-In the project directory, you can run:
+## What I use in this project:
+
+- Google Authentication
+- Email Password Authentication
+
+
+## Technology Used:
+
+- React Js
+- React Router > React Bootstrap > React Toastify > React Icons
+- Node Js
+- Express Js
+- MongoDB
+- Firebase > React Firebase hooks
 
 ### `npm start`
 
