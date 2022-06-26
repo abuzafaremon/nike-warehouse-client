@@ -7,6 +7,12 @@
 }
 
 .NewArrival .imgBox:hover img {
-  transform: rotate(15deg);
+  transform: scale(.9);
   transition: .3s ease;
+}
+
+@media screen and (max-width:576px) {
+  .NewArrival h1 {
+    font-size: 3rem;
+  }
 }

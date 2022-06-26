@@ -35,7 +35,7 @@ const AddItem = () => {
             <input className='ps-2 d-none' value={user?.email} readOnly {...register("email")} />
             <input className='ps-2' placeholder='Product Name' {...register("name", { required: true })} />
             <textarea className='ps-2' placeholder='Description' {...register("description", { required: true })} />
-            <input className='ps-2' placeholder='Product Image URL' type="text" min='1' {...register("img", { required: true })} />
+            <input className='ps-2' placeholder='Product Image URL' type="text" value='https://i.ibb.co/qxDN5K2/product-img2.jpg' {...register("img", { required: true })} />
             <div className="d-flex flex-column flex-sm-row gap-2 align-items-center justify-content-between">
               <input className='ps-2' placeholder='Supplier Name' type="text" {...register("supplier_name", { required: true })} />
               <input className='ps-2' placeholder='Price' type="number" min='1' {...register("price", { required: true })} />

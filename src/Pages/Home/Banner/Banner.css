@@ -27,3 +27,14 @@
   position: relative;
   top: 10px;
 }
+
+@media screen and (max-width:576px) {
+  #banner {
+    height: 50vh;
+  }
+
+  .content {
+    width: 100%;
+    height: 50vh;
+  }
+}

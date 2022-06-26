@@ -3,12 +3,11 @@ import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/aut
 import auth from '../../../Firebase/firebase.init';
 import { Navigate, useLocation } from 'react-router-dom';
 import Loading from '../../../Components/Loading/Loading';
-import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
 
 const RequireAuth = ({ children }) => {
   const [user, loading] = useAuthState(auth);
-  const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
   const location = useLocation();
 
   if (loading || sending) {

@@ -14,6 +14,9 @@ const ProductDetail = () => {
   const { _id, name, price, img, description, quantity, supplier_name } = product;
 
   const handleDelivered = id => {
+    if (user.email !== product.email) {
+      alert('This is not your product. Do you want to update?')
+    }
     const quantity = product.quantity;
     if (quantity > 0) {
       product.quantity = quantity - 1;
@@ -69,9 +72,6 @@ const ProductDetail = () => {
             <div className="info p-4">
               <h2>{name}</h2>
               <p className='fw-bold m-0'>Product Id: {productId}</p>
-              {
-                product?.email !== user?.email && <p className='text-danger'>This is not your product</p>
-              }
               <span className='d-block text-justify mb-3'>{description}</span>
               <div className="d-lg-flex align-items-center justify-content-between">
                 <div>
@@ -83,7 +83,10 @@ const ProductDetail = () => {
                       :
                       <p className='fw-bold'>Quantity: {quantity}</p>
                   }
-                  <button onClick={() => handleDelivered(_id)} className="btn btn-outline-dark" disabled={product.email !== user?.email && true}>Delivered</button>
+                  {
+                    product?.email !== user?.email && <p className='text-danger'>This is not your product</p>
+                  }
+                  <button onClick={() => handleDelivered(_id)} className="btn btn-outline-dark">Delivered</button>
                 </div>
                 <hr />
                 <div className='form-div'>
@@ -92,7 +95,7 @@ const ProductDetail = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Control name="quantity" min="1" type="number" placeholder="Add Quantity" required />
                     </Form.Group>
-                    <Button variant="outline-dark" type="submit" disabled={product.email !== user?.email && true}>
+                    <Button variant="outline-dark" type="submit">
                       Restock
                     </Button>
                   </Form>
