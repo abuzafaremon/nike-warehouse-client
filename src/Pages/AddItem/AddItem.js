@@ -34,8 +34,8 @@ const AddItem = () => {
           <form className='d-flex flex-column gap-2 shadow p-5' onSubmit={handleSubmit(onSubmit)}>
             <input className='ps-2 d-none' value={user?.email} readOnly {...register("email")} />
             <input className='ps-2' placeholder='Product Name' {...register("name", { required: true })} />
-            <textarea className='ps-2' placeholder='Description' {...register("description", { required: true })} />
-            <input className='ps-2' placeholder='Product Image URL' type="text" value='https://i.ibb.co/qxDN5K2/product-img2.jpg' {...register("img", { required: true })} />
+            <textarea className='ps-2' placeholder='Description' value='With an iconic design inspired by Japanese bullet trains and water droplets, push your style full speed ahead in the Air Max 97. Full-length Nike Air cushioning' {...register("description", { required: true })} />
+            <input className='ps-2' placeholder='Product Image URL' type="text" value='https://i.ibb.co/qxDN5K2/product-img1.jpg' {...register("img", { required: true })} />
             <div className="d-flex flex-column flex-sm-row gap-2 align-items-center justify-content-between">
               <input className='ps-2' placeholder='Supplier Name' type="text" {...register("supplier_name", { required: true })} />
               <input className='ps-2' placeholder='Price' type="number" min='1' {...register("price", { required: true })} />

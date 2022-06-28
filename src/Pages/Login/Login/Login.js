@@ -97,8 +97,8 @@ const Login = () => {
           </Button>
         </Form>
         {errorElement}
-        <p>Forgot Password? <span className='mb-1 text-decoration-none' onClick={resetPassword}>Reset Password</span></p>
-        <p>New to Nike Warehouse? <Link to='/register' className=' text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+        <p>Forgot Password? <span className='mb-1 text-decoration-none shadow-sm' onClick={resetPassword}>Reset Password</span></p>
+        <p>New to Nike Warehouse? <Link to='/register' className=' text-decoration-none shadow-sm' onClick={navigateRegister}>Please Register</Link></p>
         <SocialLogin />
       </div>
     </section>

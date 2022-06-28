@@ -1,17 +1,25 @@
 .divider span {
   height: 2px;
   background-color: #bbb;
-  width: 100%;
+  width: 20%;
+}
+
+.social-login {
+  padding-bottom: 1rem;
 }
 
 .social-login button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  border: 2px solid var(--dark);
+  background-color: #bbbbbb20;
+  border: none;
   border-radius: .5rem;
-  padding: .5rem 0;
+  padding: .3rem 2rem;
+  filter: grayscale(100%);
+}
+
+.social-login button:hover {
+  filter: grayscale(0);
+  background-color: #fff;
+  transition: .3s all ease-in-out;
 }
 
 .social-login button svg {
@@ -19,10 +27,12 @@
   height: 25px;
 }
 
-.social-login button .facebook {
+.social-login button:hover .facebook {
+  transition: .3s all ease-in-out;
   color: #1873eb;
 }
 
-.social-login button span {
-  color: var(--dark);
+.social-login button:hover .github {
+  transition: .3s all ease-in-out;
+  color: #000;
 }

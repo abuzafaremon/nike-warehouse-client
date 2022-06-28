@@ -76,7 +76,7 @@ const Register = () => {
           </Button>
         </Form>
         {errorElement}
-        <p>Already have an account? <Link to='/login' className=' text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
+        <p>Already have an account? <Link to='/login' className=' text-decoration-none shadow-sm' onClick={navigateLogin}>Please Login</Link></p>
         <SocialLogin />
       </div>
     </section>

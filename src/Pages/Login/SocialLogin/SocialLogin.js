@@ -30,14 +30,14 @@ const SocialLogin = () => {
     <div>
       <div className="divider w-75 mx-auto d-flex align-items-center justify-content-center mb-3">
         <span></span>
-        <p className='px-3 my-0'>Or</p>
+        <p className='px-3 my-0'>Or - Continue With</p>
         <span></span>
       </div>
       {errorElement}
-      <div className='social-login d-flex flex-column gap-2' >
-        <button onClick={() => signInWithGoogle()}><FcGoogle />&#8680;<span>Google Log In</span></button>
-        <button disabled><FaFacebookSquare className='facebook' />&#8680;<span>Facebook Log In</span></button>
-        <button disabled><BsGithub />&#8680;<span>Github Log In</span></button>
+      <div className='social-login d-flex gap-2 align-items-center justify-content-center' >
+        <button onClick={() => signInWithGoogle()}><FcGoogle /></button>
+        <button title='Disabled' disabled><FaFacebookSquare className='facebook' /></button>
+        <button title='Disabled' disabled><BsGithub className='github' /></button>
       </div>
     </div>
   );

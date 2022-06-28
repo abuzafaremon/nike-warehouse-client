@@ -35,11 +35,11 @@ const OffCanvas = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link as={Link} to='/home'>Home</Nav.Link>
-                  <Nav.Link as={Link} to='/manageInventory'>Manage Inventory</Nav.Link>
+                  <Nav.Link as={Link} to='/manageInventory'>Manage-Inventory</Nav.Link>
                   <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
                   {user ?
                     <NavDropdown
-                      title={user.displayName ? user.displayName : 'Profile'}
+                      title={user.displayName ? user.displayName.split(' ')[0] : 'Profile'}
                       id={`offcanvasNavbarDropdown-expand-${expand}`}
                     >
                       <NavDropdown.Item as={Link} to='/myItems'>My items</NavDropdown.Item>
