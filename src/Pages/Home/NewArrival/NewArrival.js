@@ -1,19 +1,21 @@
 import React from 'react';
-import NewArrivalImg from '../../../Images/New-Arrival.png';
-import './NewArrival.css'
+import useProduct from '../../../hooks/useProduct';
+import './NewArrival.css';
 
 const NewArrival = () => {
+  const [products] = useProduct();
+  const lastProduct = products?.slice(-1)[0];
   return (
     <section className='NewArrival py-5'>
       <div className="container">
-        <h2 className='section-title'>New Arrival</h2>
+        <h2 className='section-title mb-5'>New Arrival</h2>
         <div className="row align-items-center g-5">
           <div className="col-12 col-md-7 order-2 order-md-1">
-            <h1>Nike Airmax Shoes</h1>
-            <p className='text-justify'>Lace up and add your touch to the sneaker revolution. Produced at the cross-section between art, music and culture, the Air Max 90 is now yours to customise. Choose between classic leather or add a little summertime flair with canvas. Give it a makeover with your fave colours. Then add a personalised message and let the shoe that helped define the '90s speak for you.</p>
+            <h1>{lastProduct?.name}</h1>
+            <p className='text-justify'>{lastProduct?.description}</p>
           </div>
           <div className="imgBox col-10 mx-auto col-md-5 order-1 order-md-2">
-            <img className='img-fluid' src={NewArrivalImg} alt="" />
+            <img className='img-fluid' src={lastProduct?.img} alt="" />
           </div>
         </div>
       </div>

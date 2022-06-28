@@ -6,7 +6,7 @@ import './Inventory.css';
 
 const Inventory = () => {
   const [products] = useProduct();
-  const firstSixProducts = products.slice(0, 6);
+  const lastSixProducts = products.slice(-7, -1);
 
   return (
     <section id='inventory' className='inventory py-5 bg-dark'>
@@ -15,7 +15,7 @@ const Inventory = () => {
         <h2 className="text-center section-title mb-5">Inventory</h2>
         <div className="row g-5">
           {
-            firstSixProducts.map(product => <SingleProduct key={product._id} product={product}></SingleProduct>)
+            lastSixProducts.map(product => <SingleProduct key={product._id} product={product}></SingleProduct>)
           }
         </div>
         <RedirectToMI />

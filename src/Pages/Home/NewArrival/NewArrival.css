@@ -6,8 +6,12 @@
   font-size: 1.7rem;
 }
 
+.NewArrival .imgBox img {
+  border-radius: .8rem;
+}
+
 .NewArrival .imgBox:hover img {
-  transform: scale(.9);
+  transform: scale(.95);
   transition: .3s ease;
 }
 
